@@ -1,0 +1,26 @@
+{
+  "name": "5-year-diary",
+  "version": "1.0.0",
+  "description": "5 year diary app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delphinefoo/2015-11-solo.git"
+  },
+  "author": "Delphine Foo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delphinefoo/2015-11-solo/issues"
+  },
+  "homepage": "https://github.com/delphinefoo/2015-11-solo#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "mongoose": "^4.0.0",
+    "morgan": "^1.6.1"
+  }
+}

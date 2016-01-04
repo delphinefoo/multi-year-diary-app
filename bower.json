@@ -1,0 +1,22 @@
+{
+  "name": "5-year-diary",
+  "description": "5 year diary app",
+  "main": "index.js",
+  "authors": [
+    "Delphine Foo"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/delphinefoo/2015-11-solo",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.16",
+    "angular-ui-router": "~0.2.15"
+  }
+}

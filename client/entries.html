@@ -1,0 +1,10 @@
+<div id="container">
+  <h1>My Five Year Diary Entries</h1>
+  <h2>Today's date: {{ date }}</h2>
+  <ul>
+    <li ng-repeat="entry in data.entries">
+      {{ entry.text }}
+      {{ entry.createdAt }}
+    </li>
+  </ul>
+</div>

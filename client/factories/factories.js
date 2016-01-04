@@ -29,7 +29,8 @@ angular.module('fiveyear.factories', [])
   };
 
   return {
-    getEntries: getEntries
+    getEntries: getEntries,
+    addEntry: addEntry
   };
 
 });

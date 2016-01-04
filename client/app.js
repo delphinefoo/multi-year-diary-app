@@ -1,1 +1,3 @@
-angular.module
+angular.module('FiveYear', [
+  'fiveyear.factories'
+])

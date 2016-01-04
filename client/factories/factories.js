@@ -33,4 +33,22 @@ angular.module('fiveyear.factories', [])
     addEntry: addEntry
   };
 
-});
+})
+.factory('NewDate', function() {
+  var newDate = function() {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    var date = new Date(2015-09-21);
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+  };
+  return {
+    newDate: newDate
+  };
+})

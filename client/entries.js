@@ -1,7 +1,9 @@
-angular.module('fiveyear.entries', [])
+angular.module('fiveyear.entries', [
 
-.controller('entriesController', function($scope, Entries) {
-  $scope.date = new Date();
+  ])
+
+.controller('entriesController', function($scope, Entries, NewDate) {
+  $scope.today = new Date();
   $scope.data = {
     entries: [ {
         text: 'Today I skiied Mont Blanc.',

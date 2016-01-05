@@ -4,6 +4,7 @@ angular.module('fiveyear.entries', [
 
 .controller('entriesController', function($scope, Entries, NewDate) {
   $scope.today = new Date();
+  $scope.entry = {};
   $scope.data = {
     entries: [ {
         text: 'Today I skiied Mont Blanc.',
@@ -19,6 +20,10 @@ angular.module('fiveyear.entries', [
       $scope.data.entries = entries;
     });
   };
+  $scope.addEntry = function() {
+    return Entries.addEntry();
+  };
 
   $scope.getEntries();
+
 });

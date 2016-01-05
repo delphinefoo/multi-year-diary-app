@@ -18,7 +18,8 @@ angular.module('fiveyear.factories', [])
   var addEntry = function() {
     return $http({
       method: 'POST',
-      url   : 'api/entries'
+      url   : 'api/entries',
+      data  : entry
     })
     .then(function(response) {
       console.log(response);
@@ -34,6 +35,7 @@ angular.module('fiveyear.factories', [])
   };
 
 })
+
 .factory('NewDate', function() {
   var newDate = function() {
     var monthNames = [
@@ -48,7 +50,9 @@ angular.module('fiveyear.factories', [])
     var monthIndex = date.getMonth();
     var year = date.getFullYear();
   };
+
   return {
     newDate: newDate
   };
-})
+
+});

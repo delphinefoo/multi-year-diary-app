@@ -20,11 +20,14 @@ app.use(bodyParser.json());
 
 app.get('/api/entries', function(req, res, next) {
   var findAll = Q.nbind(Entry.findAll, Entry);
-
   findAll({})
     .then(function(entries) {
       res.json(entries);
     });
+});
+
+app.post('/api/entries', function(req, res, next) {
+  console.log(req.body);
 });
 
 

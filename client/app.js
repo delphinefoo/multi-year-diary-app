@@ -6,7 +6,7 @@ angular.module('FiveYear', [
 
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider
-    .otherwise('/');
+    .otherwise('/entries');
 
   $stateProvider
     .state('entries', {

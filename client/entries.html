@@ -1,8 +1,8 @@
 <div id="container" class="col-md-8 col-md-offset-2">
   <h1>My Five Year Diary Entries</h1>
   <ul>
-    <li ng-repeat="entry in data.entries">
-      <h3>{{ entry.createdAt | date: 'yyyy'}}</h3>
+    <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
+      <h3>{{ entry.createdAt | date: 'yyyy' }}</h3>
       {{ entry.text }}
     </li>
   </ul>

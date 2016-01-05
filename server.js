@@ -20,7 +20,12 @@ app.use(bodyParser.json());
 
 app.get('/api/entries', function(req, res, next) {
   var findAll = Q.nbind(Entry.find, Entry);
-  findAll({})
+  var month = new Date().getMonth();
+  var date = new Date().getDate();
+  findAll({
+    month: month,
+    day: date
+  })
     .then(function(entries) {
       res.json(entries);
     });
@@ -30,9 +35,9 @@ app.post('/api/entries', function(req, res, next) {
   var createEntry = Q.nbind(Entry.create, Entry);
   var newEntry = {
     text: req.body.text,
-    createdAt: new Date(2015, 01, 04),
-    month: new Date(2015, 01, 04).getMonth(),
-    day: new Date(2015, 01, 04).getDate()
+    createdAt: new Date(),
+    month: new Date().getMonth(),
+    day: new Date().getDate()
   };
 
   createEntry(newEntry)

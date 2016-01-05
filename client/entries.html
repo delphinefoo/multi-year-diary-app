@@ -8,8 +8,6 @@
     <ul>
       <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
         <h3>{{ entry.createdAt | date: 'yyyy' }}<small> {{ entry.text }}</small>  <button class="btn btn-default" ng-click="showTheForm = true; deleteEntry(entry._id)" ng-show="entry.day == today.date.getDate() && entry.month == today.date.getMonth() && entry.year == today.date.getFullYear()">Delete</button></h3>
-
-
       </li>
     </ul>
     <h2>Today's date: {{ today.date | date:'MMMM d, yyyy' }}</h2>
@@ -19,6 +17,7 @@
       <form name="newEntry" ng-show="showTheForm" ng-submit="addEntry()" novalidate>
         <label for="entryText">What did I do today?</label>
         <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
+        <div ng-show="entry.text.length > 0">{{ 140 - entry.text.length }} characters left</div>
         <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false; console.log('clicking!')" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
       </form>
     </div>

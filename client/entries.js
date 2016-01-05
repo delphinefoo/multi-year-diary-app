@@ -29,11 +29,6 @@ angular.module('fiveyear.entries', [
       });
   };
 
-   $scope.dateFilter = function(element) {
-    return element.created.getMonth() == $scope.selectedMonth;
-  };
-
-
 
   $scope.getEntries();
 

@@ -7,6 +7,12 @@ var entrySchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date
+  },
+  month: {
+    type: Number
+  },
+  day: {
+    type: Number
   }
 });
 

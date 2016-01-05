@@ -31,6 +31,12 @@ angular.module('fiveyear.factories', [])
     });
   };
 
+  var deleteEntry = function() {
+    return $http({
+
+    })
+  }
+
   return {
     getEntries: getEntries,
     addEntry: addEntry,

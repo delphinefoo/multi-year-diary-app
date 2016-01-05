@@ -13,6 +13,9 @@ var entrySchema = new mongoose.Schema({
   },
   day: {
     type: Number
+  },
+  year: {
+    type: Number
   }
 });
 

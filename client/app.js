@@ -12,6 +12,13 @@ angular.module('FiveYear', [
     .state('entries', {
       url: '/entries',
       templateUrl: 'entries.html',
+      controller: 'entriesController',
+      params: {
+        autoActivateChild: 'entries.form'
+      }
+    })
+    .state('entries.form', {
+      templateUrl: 'form.html',
       controller: 'entriesController'
     });
 

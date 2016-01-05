@@ -38,7 +38,8 @@ app.post('/api/entries', function(req, res, next) {
     text: req.body.text,
     createdAt: new Date(),
     month: new Date().getMonth(),
-    day: new Date().getDate()
+    day: new Date().getDate(),
+    year: new Date().getFullYear()
   };
 
   createEntry(newEntry)

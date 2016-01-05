@@ -9,6 +9,7 @@ angular.module('fiveyear.factories', [])
       url   : '/api/entries'
     })
     .then(function(response) {
+      return response.data;
       console.log('response to GET: ', response);
     })
     .catch(function(err) {

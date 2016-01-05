@@ -3,18 +3,14 @@ angular.module('fiveyear.entries', [
   ])
 
 .controller('entriesController', function($scope, Entries, NewDate) {
-  $scope.today = new Date();
+  $scope.today = {};
+  $scope.today.date = new Date();
+  $scope.today.day = $scope.today.date.getDate();
+  $scope.today.month = $scope.today.date.getMonth();
+
   $scope.entry = Entries.entry;
   $scope.data = {};
-  //   entries: [ {
-  //       text: 'Today I skiied Mont Blanc.',
-  //       createdAt: '2015-09-21'
-  //   },
-  //   {
-  //     text: 'Made a wedding cake for Alison.',
-  //     createdAt: '2015-09-21'
-  //   } ]
-  // };
+
   $scope.getEntries = function() {
     return Entries.getEntries().then(function(entries) {
       $scope.data.entries = entries;
@@ -29,8 +25,15 @@ angular.module('fiveyear.entries', [
     return Entries.addEntry()
       .then(function() {
         $scope.entry.text = '';
+        $scope.getEntries();
       });
   };
+
+   $scope.dateFilter = function(element) {
+    return element.created.getMonth() == $scope.selectedMonth;
+  };
+
+
 
   $scope.getEntries();
 

@@ -1,17 +1,18 @@
-<div id="container">
+<div id="container" class="col-md-8 col-md-offset-2">
   <h1>My Five Year Diary Entries</h1>
-  <h2>Today's date: {{ today | date:'MMMM d, yyyy' }}</h2>
   <ul>
     <li ng-repeat="entry in data.entries">
+      <h3>{{ entry.createdAt | date: 'yyyy'}}</h3>
       {{ entry.text }}
-      {{ entry.createdAt }}
     </li>
   </ul>
+  <h2>Today's date: {{ today.date | date:'MMMM d, yyyy' }}</h2>
+
   <div class="form-group">
     <form name="newEntry" ng-submit="addEntry()" novalidate>
       <label for="entryText">What did you do today?</label>
       <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
-      <input class="btn btn-default" type="submit" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
+      <input class="btn btn-primary" type="submit" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
     </form>
   </div>
 </div>

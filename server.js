@@ -30,7 +30,7 @@ app.post('/api/entries', function(req, res, next) {
   var createEntry = Q.nbind(Entry.create, Entry);
   var newEntry = {
     text: req.body.text,
-    createdAt: new Date()
+    createdAt: new Date(2015, 01, 04)
   };
 
   createEntry(newEntry)
@@ -39,8 +39,6 @@ app.post('/api/entries', function(req, res, next) {
     });
 
 });
-
-
 
 
 

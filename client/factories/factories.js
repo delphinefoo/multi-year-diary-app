@@ -1,6 +1,7 @@
 angular.module('fiveyear.factories', [])
 
 .factory('Entries', function($http) {
+  var entry = {};
 
   var getEntries = function() {
     return $http({
@@ -8,10 +9,10 @@ angular.module('fiveyear.factories', [])
       url   : '/api/entries'
     })
     .then(function(response) {
-      return response.data;
+      console.log('response to GET: ', response);
     })
     .catch(function(err) {
-      console.log('Error: ' + err);
+      console.log('Error: ', err);
     });
   };
 
@@ -25,13 +26,14 @@ angular.module('fiveyear.factories', [])
       console.log(response);
     })
     .catch(function(err) {
-      console.log('Error: '+ err);
+      console.log('Error: ', err);
     });
   };
 
   return {
     getEntries: getEntries,
-    addEntry: addEntry
+    addEntry: addEntry,
+    entry: entry
   };
 
 })

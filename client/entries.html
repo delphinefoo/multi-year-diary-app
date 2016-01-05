@@ -7,8 +7,8 @@
       {{ entry.createdAt }}
     </li>
   </ul>
-  <form name="newEntry" ng-submit="addEntry" novalidate>
-    <input type="text" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
+  <form name="newEntry" ng-submit="addEntry()" novalidate>
+    <input type="text" class="entry-form" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
     <button type="submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">Post</button>
   </form>
 </div>

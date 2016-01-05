@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.get('/api/entries', function(req, res, next) {
-  var findAll = Q.nbind(Entry.findAll, Entry);
+  var findAll = Q.nbind(Entry.find, Entry);
   findAll({})
     .then(function(entries) {
       res.json(entries);
@@ -27,7 +27,17 @@ app.get('/api/entries', function(req, res, next) {
 });
 
 app.post('/api/entries', function(req, res, next) {
-  console.log(req.body);
+  var createEntry = Q.nbind(Entry.create, Entry);
+  var newEntry = {
+    text: req.body.text,
+    createdAt: new Date()
+  };
+
+  createEntry(newEntry)
+    .then(function(createdEntry) {
+      res.json(createdEntry);
+    });
+
 });
 
 

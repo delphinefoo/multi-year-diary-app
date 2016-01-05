@@ -13,5 +13,6 @@ angular.module('FiveYear', [
       url: '/entries',
       templateUrl: 'entries.html',
       controller: 'entriesController'
-    })
-})
+    });
+
+});

@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var Q = require('q');
 var Entry = require('./entryModel.js');
+var util = require('./utils.js');
 
 var port = process.env.PORT || 3000;
 

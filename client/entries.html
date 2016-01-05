@@ -7,8 +7,11 @@
       {{ entry.createdAt }}
     </li>
   </ul>
-  <form name="newEntry" ng-submit="addEntry()" novalidate>
-    <input type="text" class="entry-form" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
-    <button type="submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">Post</button>
-  </form>
+  <div class="form-group">
+    <form name="newEntry" ng-submit="addEntry()" novalidate>
+      <label for="entryText">What did you do today?</label>
+      <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
+      <input class="btn btn-default" type="submit" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
+    </form>
+  </div>
 </div>

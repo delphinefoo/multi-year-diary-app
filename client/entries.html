@@ -1,25 +1,26 @@
-<div id="container" class="col-md-8 col-md-offset-2">
-  <h1>My Five Year Diary Entries</h1>
-  <ul>
-    <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
-      <h3>{{ entry.createdAt | date: 'yyyy' }}</h3>
-      {{ entry.text }}
-      <button class="btn btn-default" ng-click="showTheForm = !showTheForm" ng-show="entry.day == today.date.getDate() && entry.month == today.date.getMonth() && entry.year == today.date.getFullYear()" ui-sref="entries.form">Delete</button>
-    </li>
-  </ul>
-  <h2>Today's date: {{ today.date | date:'MMMM d, yyyy' }}</h2>
 
-  <!--<div class="form-group">
-  <button ng-click="showTheForm = !showTheForm">Show/hide</button>
-    <form name="newEntry" ng-hide="!showTheForm" ng-submit="addEntry()" novalidate>
-      <label for="entryText">What did you do today?</label>
-      <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
-      <input class="btn btn-primary" type="submit"  ng-click="showTheForm = !showTheForm" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
-    </form>
-  </div>-->
-  <div>
-    <div ui-view>
+  <div class="jumbotron">
+    <h1>Delphine's Five Year Diary</h1>
+  </div>
+
+  <div id="container" class="col-md-8 col-md-offset-2">
+    <h2>What was I doing in:</h2>
+    <ul>
+      <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
+        <h3>{{ entry.createdAt | date: 'yyyy' }}<small> {{ entry.text }}</small>  <button class="btn btn-default" ng-click="showTheForm = true; deleteEntry(entry._id)" ng-show="entry.day == today.date.getDate() && entry.month == today.date.getMonth() && entry.year == today.date.getFullYear()">Delete</button></h3>
+
+
+      </li>
+    </ul>
+    <h2>Today's date: {{ today.date | date:'MMMM d, yyyy' }}</h2>
+
+    <div class="form-group">
+
+      <form name="newEntry" ng-show="showTheForm" ng-submit="addEntry()" novalidate>
+        <label for="entryText">What did I do today?</label>
+        <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
+        <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false; console.log('clicking!')" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
+      </form>
     </div>
   </div>
 
-</div>

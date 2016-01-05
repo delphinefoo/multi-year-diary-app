@@ -1,0 +1,30 @@
+ul {
+  list-style: none;
+  margin-bottom: 60px;
+}
+
+li {
+  text-align-vertical: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: teal;
+}
+
+#entryText {
+  margin: 10px 0 20px;
+}
+
+
+#container {
+  margin-bottom: 100px;
+}
+.jumbotron {
+  background-color: teal;
+  color: white;
+}

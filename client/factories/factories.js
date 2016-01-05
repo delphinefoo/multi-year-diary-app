@@ -31,21 +31,29 @@ angular.module('fiveyear.factories', [])
     });
   };
 
-  var deleteEntry = function() {
+  var deleteEntry = function(id) {
     return $http({
-
+      method: 'DELETE',
+      url   : 'api/entries/' + id,
     })
-  }
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(err) {
+      console.log('Error: ', err);
+    });
+  };
 
   return {
     getEntries: getEntries,
     addEntry: addEntry,
-    entry: entry
+    entry: entry,
+    deleteEntry: deleteEntry
   };
 
-})
+});
 
-.factory('NewDate', function() {
+/*.factory('NewDate', function() {
   var newDate = function() {
     var monthNames = [
       "January", "February", "March",
@@ -54,7 +62,7 @@ angular.module('fiveyear.factories', [])
       "November", "December"
     ];
 
-    var date = new Date(2015-09-21);
+    var date = new Date();
     var day = date.getDate();
     var monthIndex = date.getMonth();
     var year = date.getFullYear();
@@ -64,4 +72,4 @@ angular.module('fiveyear.factories', [])
     newDate: newDate
   };
 
-});
+});*/

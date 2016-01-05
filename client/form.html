@@ -1,8 +1,8 @@
 <div class="form-group">
-  <button ng-click="showTheForm = !showTheForm">Show/hide</button>
-  <form name="newEntry" ng-show="!showTheForm" ng-submit="addEntry()" novalidate>
+  <!--<button ng-click="showTheForm = !showTheForm">Show/hide</button>-->
+  <form name="newEntry" ng-hide="!showTheForm" ng-submit="addEntry()" novalidate>
     <label for="entryText">What did you do today?</label>
     <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
-    <input class="btn btn-primary" type="submit"  ng-click="showTheForm = !showTheForm" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
+    <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
   </form>
 </div>

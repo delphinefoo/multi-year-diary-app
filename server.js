@@ -41,12 +41,21 @@ app.post('/api/entries', function(req, res, next) {
     day: new Date().getDate(),
     year: new Date().getFullYear()
   };
-
   createEntry(newEntry)
     .then(function(createdEntry) {
       res.json(createdEntry);
     });
+});
 
+app.delete('/api/entries/:entry_id', function(req, res, next) {
+  console.log('deleting entry from db');
+  var remove = Q.nbind(Entry.remove, Entry);
+  remove({
+    _id: req.params.entry_id
+  })
+    .then(function() {
+      res.end();
+    });
 });
 
 

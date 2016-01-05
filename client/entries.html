@@ -1,67 +1,54 @@
+<div class="jumbotron">
+  <h1>Delphine's Five Year Diary</h1>
+</div>
 
-  <div class="jumbotron">
-    <h1>Delphine's Five Year Diary</h1>
+<div id="container" class="col-md-8 col-md-offset-2">
+
+<!-- ####### PREVIOUS ENTRIES ####### -->
+
+  <h2>What was I doing in:</h2>
+  <ul>
+    <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
+      <h3>{{ entry.createdAt | date: 'yyyy' }}<small> {{ entry.text }}</small>  <button class="btn btn-default" ng-click="showTheForm = true; deleteEntry(entry._id)" ng-show="entry.day == today.date.getDate() && entry.month == today.date.getMonth() && entry.year == today.date.getFullYear()">Delete</button></h3>
+    </li>
+  </ul>
+  <h2>Today's date: {{ today.date | date:'MMMM d, yyyy' }}</h2>
+
+
+<!-- ####### ENTRY FORM ####### -->
+
+  <div class="form-group">
+    <form name="newEntry" ng-show="showTheForm" ng-submit="addEntry()" novalidate>
+      <label for="entryText">What did I do today?</label>
+      <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
+      <div ng-show="entry.text.length > 0">{{ 140 - entry.text.length }} characters left</div>
+      <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false; console.log('clicking!')" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
+    </form>
   </div>
 
-  <div id="container" class="col-md-8 col-md-offset-2">
-    <h2>What was I doing in:</h2>
-    <ul>
-      <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
-        <h3>{{ entry.createdAt | date: 'yyyy' }}<small> {{ entry.text }}</small>  <button class="btn btn-default" ng-click="showTheForm = true; deleteEntry(entry._id)" ng-show="entry.day == today.date.getDate() && entry.month == today.date.getMonth() && entry.year == today.date.getFullYear()">Delete</button></h3>
-      </li>
-    </ul>
-    <h2>Today's date: {{ today.date | date:'MMMM d, yyyy' }}</h2>
 
-    <div class="form-group">
+<!-- ####### DATEPICKER ####### -->
 
-      <form name="newEntry" ng-show="showTheForm" ng-submit="addEntry()" novalidate>
-        <label for="entryText">What did I do today?</label>
-        <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
-        <div ng-show="entry.text.length > 0">{{ 140 - entry.text.length }} characters left</div>
-        <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false; console.log('clicking!')" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
-      </form>
-    </div>
+  <div class="col-md-6 col-md-offset-3 datepicker" ng-controller="DatepickerDemoCtrl">
+    <pre>See entry for: <em>{{dt | date:'fullDate' }}</em></pre>
 
-    <div class="col-md-6 col-md-offset-3 datepicker">
-      <pre>See entry for: <em>{{dt | date:'fullDate' }}</em></pre>
-
-      <!--<div class="row">
-          <div class="col-md-6">
-              <p class="input-group">
-                <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-              </p>
-          </div>
-      </div>
-    </div>-->
+    <!--<p class="input-group">
+      <input type="date" class="form-control" uib-datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>-->
 
 
-      <p class="input-group">
-        <input type="date" class="form-control" uib-datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-        </span>
-      </p>
-    </div>
-
-
-
-    <!--<div class="col-md-6">
-            <p class="input-group">
-              <input type="date" class="form-control" uib-datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-            </p>
-        </div>
-    </div>-->
-   <!--<div class="row">
-        <div class="col-md-6">
-            <label>Format:</label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
-        </div>
-    </div>-->
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
 
   </div>
+
+
+</div>
 

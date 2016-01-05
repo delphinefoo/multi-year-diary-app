@@ -1,6 +1,6 @@
 angular.module('fiveyear.entries', [])
 
-.controller('entriesController', function($scope, Entries, $location) {
+.controller('entriesController', function($scope, Entries) {
   $scope.today = {};
   $scope.today.date = new Date();
   $scope.today.day = $scope.today.date.getDate();
@@ -11,8 +11,6 @@ angular.module('fiveyear.entries', [])
 
   $scope.entry = Entries.entry;
   $scope.data = {};
-
-  // $scope.Model = $scope.Model;
 
   $scope.getEntries = function() {
     return Entries.getEntries().then(function(entries) {
@@ -42,10 +40,8 @@ angular.module('fiveyear.entries', [])
       })
       .catch(function(error) {
         console.log(error);
-      })
+      });
   };
-
-
 
   $scope.getEntries();
 

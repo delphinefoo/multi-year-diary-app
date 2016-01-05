@@ -2,6 +2,7 @@ angular.module('FiveYear', [
   'fiveyear.factories',
   'fiveyear.entries',
   'ui.router',
+  'ui.bootstrap'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {

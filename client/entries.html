@@ -21,5 +21,47 @@
         <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false; console.log('clicking!')" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
       </form>
     </div>
+
+    <div class="col-md-6 col-md-offset-3 datepicker">
+      <pre>See entry for: <em>{{dt | date:'fullDate' }}</em></pre>
+
+      <!--<div class="row">
+          <div class="col-md-6">
+              <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+          </div>
+      </div>
+    </div>-->
+
+
+      <p class="input-group">
+        <input type="date" class="form-control" uib-datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+
+
+
+    <!--<div class="col-md-6">
+            <p class="input-group">
+              <input type="date" class="form-control" uib-datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+    </div>-->
+   <!--<div class="row">
+        <div class="col-md-6">
+            <label>Format:</label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
+        </div>
+    </div>-->
+
   </div>
 

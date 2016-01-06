@@ -1,6 +1,6 @@
 angular.module('fiveyear.entries', [])
 
-.controller('entriesController', function($scope, Entries) {
+.controller('entriesController', function($rootScope, $scope, Entries) {
   $scope.today = {};
   $scope.today.date = new Date();
   $scope.today.day = $scope.today.date.getDate();
@@ -46,7 +46,8 @@ angular.module('fiveyear.entries', [])
 
 })
 
-.controller('DatepickerDemoCtrl', function ($scope, Entries) {
+.controller('DatepickerDemoCtrl', function ($rootScope, $scope, Entries) {
+
   $scope.today = function() {
     $scope.dt = new Date();
 

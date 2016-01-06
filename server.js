@@ -50,10 +50,10 @@ app.post('/api/entries', function(req, res, next) {
   var createEntry = Q.nbind(Entry.create, Entry);
   var newEntry = {
     text: req.body.text,
-    createdAt: new Date(2015, 11, 31),
-    month: new Date(2015, 11, 31).getMonth(),
-    day: new Date(2015, 11, 31).getDate(),
-    year: new Date(2015, 11, 31).getFullYear()
+    createdAt: new Date(),
+    month: new Date().getMonth(),
+    day: new Date().getDate(),
+    year: new Date().getFullYear()
   };
   createEntry(newEntry)
     .then(function(createdEntry) {

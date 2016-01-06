@@ -5,8 +5,7 @@
 <div id="container" class="col-md-8 col-md-offset-2">
 
 <!-- ####### PREVIOUS ENTRIES ####### -->
-
-  <h2>What was I doing in:</h2>
+  <h2>What was I doing on {{ data.entries[0].createdAt | date: 'MMMM d'}}?</h2>
   <ul>
     <li ng-repeat="entry in data.entries | orderBy: 'createdAt' ">
       <h3>{{ entry.createdAt | date: 'yyyy' }}<small> {{ entry.text }}</small>  <button class="btn btn-default" ng-click="showTheForm = true; deleteEntry(entry._id)" ng-show="entry.day == today.date.getDate() && entry.month == today.date.getMonth() && entry.year == today.date.getFullYear()">Delete</button></h3>
@@ -30,15 +29,7 @@
 <!-- ####### DATEPICKER ####### -->
 
   <div class="col-md-6 col-md-offset-3 datepicker" ng-controller="DatepickerDemoCtrl">
-    <pre>DIVE INTO THE PAST! <br>See entry for: <em>{{dt | date:'fullDate' }}</em></pre>
-
-    <!--<p class="input-group">
-      <input type="date" class="form-control" uib-datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-      </span>
-    </p>-->
-
+    <strong>DIVE INTO THE PAST! <br>See entry for: </strong>
 
     <p class="input-group">
       <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" ng-change="getDateEntries(dt)" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />

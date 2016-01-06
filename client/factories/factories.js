@@ -6,11 +6,24 @@ angular.module('fiveyear.factories', [])
   var getEntries = function() {
     return $http({
       method: 'GET',
-      url   : '/api/entries'
+      url   : '/api/entries',
     })
     .then(function(response) {
       return response.data;
-      console.log('response to GET: ', response);
+    })
+    .catch(function(err) {
+      console.log('Error: ', err);
+    });
+  };
+
+  var getDateEntries = function(date) {
+    return $http({
+      method: 'GET',
+      url   : '/api/entries/' + date.getMonth() + '/' + date.getDate() ,
+      data  : date
+    })
+    .then(function(response) {
+      return response.data;
     })
     .catch(function(err) {
       console.log('Error: ', err);
@@ -48,7 +61,8 @@ angular.module('fiveyear.factories', [])
     getEntries: getEntries,
     addEntry: addEntry,
     entry: entry,
-    deleteEntry: deleteEntry
+    deleteEntry: deleteEntry,
+    getDateEntries: getDateEntries
   };
 
 });

@@ -25,9 +25,23 @@ app.get('/api/entries', function(req, res, next) {
   var date = new Date().getDate();
   findAll({
     month: month,
+    day: date,
+  })
+    .then(function(entries) {
+      res.json(entries);
+    });
+});
+
+app.get('/api/entries/:month/:day', function(req, res) {
+  var findAll = Q.nbind(Entry.find, Entry);
+  var month = req.params.month;
+  var date = req.params.day;
+  findAll({
+    month: month,
     day: date
   })
     .then(function(entries) {
+      console.log(entries);
       res.json(entries);
     });
 });
@@ -48,7 +62,6 @@ app.post('/api/entries', function(req, res, next) {
 });
 
 app.delete('/api/entries/:entry_id', function(req, res, next) {
-  console.log('deleting entry from db');
   var remove = Q.nbind(Entry.remove, Entry);
   remove({
     _id: req.params.entry_id

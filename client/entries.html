@@ -22,7 +22,7 @@
       <label for="entryText">What did I do today?</label>
       <input type="text" class="form-control" id="entryText" name="text" ng-model="entry.text" ng-minlength="1" ng-maxlength="140">
       <div ng-show="entry.text.length > 0">{{ 140 - entry.text.length }} characters left</div>
-      <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false; console.log('clicking!')" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
+      <input class="btn btn-primary" type="submit"  ng-click="showTheForm = false" value="Submit" ng-disabled="newEntry.$invalid || newEntry.$pristine">
     </form>
   </div>
 
@@ -41,7 +41,7 @@
 
 
     <p class="input-group">
-      <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+      <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" ng-change="getDateEntries(dt)" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
       <span class="input-group-btn">
         <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
       </span>

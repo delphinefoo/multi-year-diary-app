@@ -29,13 +29,13 @@ Once the project moves into development, the press release can be used as a touc
   Many people have a hard time remembering exactly what date specific events occurred: Did I take my vacation in July or August 3 years ago? What was the name of that  restaurant we went to for my birthday in 2011? It can also be a great source of enjoyment to think about the memories you've built up over the past years. The Multi Year Diary app lets you quickly review what was going on in your life in the last few years, at the end of each day. This can also be a great motivator in goal-setting and achievement!
 
 ## Solution ##
-  The Five Year Diary app stores entries that you write each day. You will be presented with a blank form to write what you wish on each day. If you've written entries for the same date in any of the previous years, they will be displayed on the same page as today's date. You're limited to 140 characters, so record the most memorable things that stand out to you about each day. If that's a
+  The Five Year Diary app stores entries that you write each day. You will be presented with a blank form to write what you wish on each day. If you've written entries for the same date in any of the previous years, they will be displayed on the same page as today's date. You're limited to 140 characters, so record the most memorable things that stand out to you about each day.
 
 ## Quote from You ##
   "We aim to bring more daily joy to our customers' lives and help them achieve goals by enabling them  to record in a few sentences what was happening each day of each year, and then easily review those recordings each day."
 
 ## How to Get Started ##
-  The Five Year Diary app stores entries that you write each day. You will be presented with a blank form to write what you wish for today's date. If you've written entries for the same date in any of the previous years, they will be displayed on the same page as today's blank entry form. You're limited to 140 characters, so record the most memorable things that stand out to you about each day.
+  Sign up for a free account, and start by writing an entry for what you did today. You will be able to delete an entry as long as it's the still the same date you wrote it; otherwise, it's in existence forever! Use the datepicker at the bottom of the screen to look back at entries on specific dates.
 
 ## Customer Quote ##
   "I love looking back at my previous entries and remembering the fun things I was doing in the past years! I can use the diary to keep track of my progress toward long-term goals, and see in a concrete way how far I've come in past weeks, months and years."

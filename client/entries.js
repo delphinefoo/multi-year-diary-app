@@ -13,7 +13,7 @@ angular.module('fiveyear.entries', [])
   $scope.data = {};
 
   $scope.getEntries = function() {
-    return Entries.getEntries($scope.dt).then(function(entries) {
+    return Entries.getEntries().then(function(entries) {
       $scope.data.entries = entries;
       console.log('Entries?', entries);
     })
@@ -123,9 +123,9 @@ angular.module('fiveyear.entries', [])
 
   $scope.getDateEntries = function(date) {
     return Entries.getDateEntries(date)
-            .then(function() {
-
-            });
+      .then(function(entries) {
+        $scope.data.entries = entries;
+      });
   };
 
 
